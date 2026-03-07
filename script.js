@@ -1,7 +1,12 @@
 const toDoContainer = document.getElementById('items');
 const addTaskButton = document.getElementById('addTask');
-const deleteButtons= document.getElementsByClassName('delete');
-const deleteButtonsLength= deleteButtons.length;
+const deleteButtons = document.getElementsByClassName('delete');
+const items = document.querySelector('#items').children;
+console.dir(items);
+
+const completeListContainer = document.querySelector('.complete-list ul');
+console.log(completeListContainer);
+
 console.dir(deleteButtons);
 
 const addTask = (e) => {
@@ -9,7 +14,7 @@ const addTask = (e) => {
     const taskInput = document.getElementById('new-task');
     const task = taskInput.value;
 
-    if(task.length==0) {
+    if (task.length == 0) {
         alert('Please Enter a Task.');
         return;
     }
@@ -30,17 +35,27 @@ const addTask = (e) => {
 
 addTaskButton.addEventListener('click', addTask);
 
-const addToCompleted = ()=>{
 
-}
-
-// deleteButton.addEventListener('click',function(){
-//     this.remove();
-//     console.log('delete clicked');
-// })
-for(let i=0;i<deleteButtonsLength;i++){
-    const deleteButton= deleteButtons[i];
-    deleteButton.addEventListener('click',function(){
+for (let i = 0; i < deleteButtons.length; i++) {
+    const deleteButton = deleteButtons[i];
+    deleteButton.addEventListener('click', function () {
         this.parentNode.remove();
+    });
+}
+for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    // if(items[i])
+    item.addEventListener('click', function () {
+        const newList = document.createElement('li');
+        const createButton = document.createElement('button');
+
+        newList.classList.add('item');
+        createButton.classList.add('delete');
+        
+        createButton.innerText='Delete';
+        newList.innerText=item.innerText;
+
+        newList.appendChild(createButton);
+        completeListContainer.appendChild(newList);
     });
 }
