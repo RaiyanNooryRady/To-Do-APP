@@ -1,0 +1,127 @@
+/*
+ * Title: To Do List CSS file
+ * Description: This file has all the styles associated with the To Do App project
+ * Author: Raiyan (Devseller)
+ * Date: 12/16/2020
+ *
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background: #CDCDCD;
+    padding: 25px;
+    max-width: 1000px;
+    margin: 25px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 4px solid #000;
+    font-family: sans-serif;
+}
+
+#addTask {
+    padding: 5px 15px;
+    border: 2px solid #E1C591;
+    border-radius: 5px;
+    background: #E1C591;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+h1,
+h2 {
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    padding: 0 0 10px;
+    color: #57635c;
+}
+
+.logo {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+@media(max-width:578px){
+    .logo{
+        flex-direction: column;
+    }
+    #addTask{
+        margin-top: 10px;
+    }
+}
+
+.logo img {
+    width: 150px;
+}
+
+.new-task-container {
+    text-align: center;
+}
+
+.box {
+    padding: 10px 15px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background: #fff;
+    margin: 15px 0;
+}
+.task-boxs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.todo-list {
+    float: left;
+    min-width: 46%;
+}
+
+.complete-list {
+    float: right;
+    min-width: 46%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.update {
+    float: right;
+    background-color: blue;
+    color: white;
+    border: 0px;
+    padding: 3px 5px;
+}
+
+.delete {
+    float: right;
+    background-color: red;
+    color: white;
+    border: 0px;
+    padding: 3px 5px;
+}
