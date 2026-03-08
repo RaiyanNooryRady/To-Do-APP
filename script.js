@@ -45,8 +45,8 @@ completeListContainer.addEventListener('click', function (e) {
 
 toDoContainer.addEventListener('click', function (e) {
     console.dir(e.target);
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'LABEL') {
-        const item = e.target.parentNode;
+    const item=e.target.parentNode;
+    if (item.classList.contains('item')) {
         const newList = document.createElement('li');
         const createButton = document.createElement('button');
 
