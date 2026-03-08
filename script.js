@@ -28,6 +28,7 @@ const addTask = (e) => {
     newList.appendChild(inputField);
     newList.appendChild(newLabel);
     toDoContainer.appendChild(newList);
+    taskInput.value = '';
 
 };
 
