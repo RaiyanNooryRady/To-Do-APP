@@ -10,3 +10,6 @@ console.dir(document);
 console.log(document.forms);
 console.log(document.links);
 console.log(document.images);
+const children=document.querySelector('.item');
+const grandParent=children.closest('.todo-list');
+console.log(grandParent);
