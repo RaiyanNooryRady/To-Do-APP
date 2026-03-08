@@ -1,8 +1,6 @@
 const toDoContainer = document.getElementById('items');
 const addTaskButton = document.getElementById('addTask');
 const deleteButtons = document.getElementsByClassName('delete');
-const items = document.querySelector('#items').children;
-console.dir(items);
 
 const completeListContainer = document.querySelector('.complete-list ul');
 console.log(completeListContainer);
@@ -36,26 +34,30 @@ const addTask = (e) => {
 addTaskButton.addEventListener('click', addTask);
 
 
-for (let i = 0; i < deleteButtons.length; i++) {
-    const deleteButton = deleteButtons[i];
-    deleteButton.addEventListener('click', function () {
-        this.parentNode.remove();
-    });
-}
-for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    // if(items[i])
-    item.addEventListener('click', function () {
+completeListContainer.addEventListener('click', function (e) {
+    const target= e.target;
+    const parentNode= target.parentNode;
+    if(target.classList.contains('delete')){
+        parentNode.remove();
+    }
+});
+
+
+toDoContainer.addEventListener('click', function (e) {
+    console.dir(e.target);
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'LABEL') {
+        const item = e.target.parentNode;
         const newList = document.createElement('li');
         const createButton = document.createElement('button');
 
         newList.classList.add('item');
         createButton.classList.add('delete');
-        
-        createButton.innerText='Delete';
-        newList.innerText=item.innerText;
+
+        createButton.innerText = 'Delete';
+        newList.innerText = item.innerText;
 
         newList.appendChild(createButton);
         completeListContainer.appendChild(newList);
-    });
-}
+        item.remove();
+    }
+});
