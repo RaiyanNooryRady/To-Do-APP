@@ -33,12 +33,12 @@ function loadMilestone() {
     .join("")}`;
 }
 function openMilestone(milestoneElement) {
-  const currentNode=milestoneElement.parentNode.nextElementSibling;
-  const shownPanel= document.querySelector('.show');
-  const activePanel=document.querySelector('.active');
-  (currentNode.classList.contains('show') || !shownPanel)?null:shownPanel.classList.remove('show');
+  const currentNode = milestoneElement.parentNode.nextElementSibling;
+  const shownPanel = document.querySelector('.show');
+  const activePanel = document.querySelector('.active');
+  (currentNode.classList.contains('show') || !shownPanel) ? null : shownPanel.classList.remove('show');
   currentNode.classList.toggle('show');
-  (!activePanel||milestoneElement.classList.contains('active'))?null: activePanel.classList.remove('active');
+  (!activePanel || milestoneElement.classList.contains('active')) ? null : activePanel.classList.remove('active');
   milestoneElement.classList.toggle('active');
 }
 loadMilestone();
