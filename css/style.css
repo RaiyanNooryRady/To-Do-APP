@@ -125,3 +125,10 @@ li {
     border: 0px;
     padding: 3px 5px;
 }
+.nav-links{
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
