@@ -49,4 +49,8 @@ loadMilestone();
 function showMilestone(id){
   const milestoneImage=document.querySelector('.milestoneImage');
   milestoneImage.src=milestonesData[id].image;
+  const title=document.querySelector('.title');
+  const details=document.querySelector('.details');
+  title.innerText=milestonesData[id].name;
+  details.innerText=milestonesData[id].description;
 }
