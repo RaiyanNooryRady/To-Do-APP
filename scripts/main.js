@@ -9,7 +9,7 @@ function loadMilestone() {
       return `  <div class="milestone border-b">
             <div class="flex">
               <div class="checkbox"><input type="checkbox" /></div>
-              <div onClick='openMilestone(this)'>
+              <div onClick='openMilestone(this,${milestone._id})'>
                 <p>
                   ${milestone.name}
                   <span><i class="fas fa-chevron-down"></i></span>
@@ -32,13 +32,21 @@ function loadMilestone() {
     })
     .join("")}`;
 }
-function openMilestone(milestoneElement) {
+function openMilestone(milestoneElement,id) {
   const currentNode = milestoneElement.parentNode.nextElementSibling;
   const shownPanel = document.querySelector('.show');
   const activePanel = document.querySelector('.active');
+
   (currentNode.classList.contains('show') || !shownPanel) ? null : shownPanel.classList.remove('show');
   currentNode.classList.toggle('show');
+
   (!activePanel || milestoneElement.classList.contains('active')) ? null : activePanel.classList.remove('active');
   milestoneElement.classList.toggle('active');
+
+  showMilestone(id);
 }
 loadMilestone();
+function showMilestone(id){
+  const milestoneImage=document.querySelector('.milestoneImage');
+  milestoneImage.src=milestonesData[id].image;
+}
