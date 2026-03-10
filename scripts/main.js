@@ -82,4 +82,5 @@ function markMilestone(checkbox,id){
     milestonesList.appendChild(item);
     doneList.removeChild(item);
   }
+  //ordering the list
 }
