@@ -32,7 +32,7 @@ function loadMilestone() {
     })
     .join("")}`;
 }
-function openMilestone(milestoneElement,id) {
+function openMilestone(milestoneElement, id) {
   const currentNode = milestoneElement.parentNode.nextElementSibling;
   const shownPanel = document.querySelector('.show');
   const activePanel = document.querySelector('.active');
@@ -46,11 +46,25 @@ function openMilestone(milestoneElement,id) {
   showMilestone(id);
 }
 loadMilestone();
-function showMilestone(id){
-  const milestoneImage=document.querySelector('.milestoneImage');
-  milestoneImage.src=milestonesData[id].image;
-  const title=document.querySelector('.title');
-  const details=document.querySelector('.details');
-  title.innerText=milestonesData[id].name;
-  details.innerText=milestonesData[id].description;
+function showMilestone(id) {
+  const milestoneImage = document.querySelector('.milestoneImage');
+  const title = document.querySelector('.title');
+  const details = document.querySelector('.details');
+
+  milestoneImage.style.opacity = '0';
+
+  milestoneImage.src = milestonesData[id].image;
+  title.innerText = milestonesData[id].name;
+  details.innerText = milestonesData[id].description;
 }
+
+//listen for hero image load
+const milestoneImage = document.querySelector('.milestoneImage');
+// milestoneImage.addEventListener('load',function(){
+//   milestoneImage.style.opacity='1';
+// })
+
+milestoneImage.onload = function () {
+  this.style.opacity = '1';
+}
+
